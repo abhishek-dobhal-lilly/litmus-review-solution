@@ -1,0 +1,34 @@
+{
+  "operations": [
+    {
+      "op": "set_max_output_tokens",
+      "component": "synthesize",
+      "n": 16000,
+      "note": "restore previous default; Monday max output 7808"
+    },
+    {
+      "op": "set_reasoning",
+      "component": "synthesize",
+      "mode": "off",
+      "note": "reasoning was unset and picked up the new alias default; Monday ran with none"
+    },
+    {
+      "op": "set_tool_arg_parsing",
+      "component": "orchestrator",
+      "mode": "object",
+      "note": "new snapshot returns tool-call arguments as objects (474 parse errors)"
+    },
+    {
+      "op": "set_result_field",
+      "component": "search",
+      "field": "items",
+      "note": "LitIndex v4 returns results in 'items'"
+    },
+    {
+      "op": "set_retry_policy",
+      "component": "orchestrator",
+      "policy": "exp_backoff_jitter",
+      "note": "honour retry-after under the lower tier instead of burning the shared allowance"
+    }
+  ]
+}
